@@ -20,6 +20,7 @@ import { fetchUserData } from '../services/api';
 
 // - Context
 import { useFormData } from '../services/context';
+import LayoutWrapper from '../components/Layout/LayoutWrapper';
 
 export default function Home() {
   const router = useRouter();
@@ -80,70 +81,70 @@ export default function Home() {
           key="desc"
         />
       </Head>
-      <Header />
-      <section className={styles.home}>
-        <aside>
-          <Image
-            className={styles.home__heroImg}
-            src={'/assets/imgs/hero.png'}
-            loading="eager"
-            fill={true}
-            objectFit="cover"
-            objectPosition="center"
-            alt="Rimac Seguros y Reaseguros"
-          />
-        </aside>
-        <form onSubmit={onSubmit} className={styles.home__form}>
-          <div className={styles.home__formHeadings}>
-            <div className={styles.home__formHeadingsWrapper}>
-              <div>
-                <Tag text="Seguro Salud Flexible" />
-                <h1>Creado para ti y tu familia</h1>
+      <LayoutWrapper>
+        <section className={styles.home}>
+          <aside>
+            <Image
+              className={styles.home__heroImg}
+              src={'/assets/imgs/hero.png'}
+              loading="eager"
+              fill={true}
+              objectFit="cover"
+              objectPosition="center"
+              alt="Rimac Seguros y Reaseguros"
+            />
+          </aside>
+          <form onSubmit={onSubmit} className={styles.home__form}>
+            <div className={styles.home__formHeadings}>
+              <div className={styles.home__formHeadingsWrapper}>
+                <div>
+                  <Tag text="Seguro Salud Flexible" />
+                  <h1>Creado para ti y tu familia</h1>
+                </div>
+                <div className={styles.home__formImg}>
+                  <Image
+                    className={styles.home__heroImg}
+                    src={'/assets/imgs/hero.png'}
+                    loading="eager"
+                    fill={true}
+                    objectFit="cover"
+                    objectPosition="center"
+                    alt="Rimac Seguros y Reaseguros"
+                  />
+                </div>
               </div>
-              <div className={styles.home__formImg}>
-                <Image
-                  className={styles.home__heroImg}
-                  src={'/assets/imgs/hero.png'}
-                  loading="eager"
-                  fill={true}
-                  objectFit="cover"
-                  objectPosition="center"
-                  alt="Rimac Seguros y Reaseguros"
-                />
-              </div>
+              <hr className={styles.home__separator} />
+              <h3>
+                Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe
+                nuestra asesoría. 100% online.
+              </h3>
             </div>
-            <hr className={styles.home__separator} />
-            <h3>
-              Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe nuestra
-              asesoría. 100% online.
-            </h3>
-          </div>
-          <div className={styles.home__formInputs}>
-            <DropdownInput
-              placeholder="Nro. de documento"
-              dropdownName="documentType"
-              inputName="document"
-              type="number"
-            />
-            <Input placeholder="Celular" name="phone" type="number" />
-          </div>
-          <div className={styles.home__formTerms}>
-            <Checkbox
-              id="privacyPolicy"
-              label="Acepto la Política de Privacidad"
-              name="policy"
-            />
-            <Checkbox
-              id="commsPolicy"
-              label="Acepto la Política Comunicaciones Comerciales"
-              name="comms"
-            />
-            <a href="#">Aplican Términos y Condiciones.</a>
-          </div>
-          <Button type="submit" text={'Cotiza aquí'} />
-        </form>
-      </section>
-      <Footer />
+            <div className={styles.home__formInputs}>
+              <DropdownInput
+                placeholder="Nro. de documento"
+                dropdownName="documentType"
+                inputName="document"
+                type="number"
+              />
+              <Input placeholder="Celular" name="phone" type="number" />
+            </div>
+            <div className={styles.home__formTerms}>
+              <Checkbox
+                id="privacyPolicy"
+                label="Acepto la Política de Privacidad"
+                name="policy"
+              />
+              <Checkbox
+                id="commsPolicy"
+                label="Acepto la Política Comunicaciones Comerciales"
+                name="comms"
+              />
+              <a href="#">Aplican Términos y Condiciones.</a>
+            </div>
+            <Button type="submit" text={'Cotiza aquí'} />
+          </form>
+        </section>
+      </LayoutWrapper>
     </>
   );
 }

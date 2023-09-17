@@ -9,7 +9,7 @@ import IconTelephone from '../../../public/assets/icons/IconTelephoneSolid.svg';
 
 export default function Header() {
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <Link href="/">
         <Image
           className={styles.header__logo}
@@ -26,6 +26,6 @@ export default function Header() {
           <a href="tel:+014116001">(01) 411 6001</a>
         </div>
       </div>
-    </div>
+    </header>
   );
 }

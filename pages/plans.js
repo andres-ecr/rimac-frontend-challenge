@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 // - Components
-import Header from '../components/Layout/Header';
 import UserSelect from '../components/Plans/UserSelect';
 import PlanSelect from '../components/Plans/PlanSelect';
+import ProgressBar from '../components/Plans/ProgressBar';
+import BackButton from '../components/Common/BackButton';
+import LayoutWrapper from '../components/Layout/LayoutWrapper';
 
 // - Utils
 import { calculateAge, convertToPascalCase } from '../utils/functions';
@@ -25,8 +27,6 @@ import useMobileDetection from '../utils/hooks';
 // - Icons
 import IconPlanExternal from '../public/assets/icons/IconPlanExternal.svg';
 import IconPlanUser from '../public/assets/icons/IconPlanUser.svg';
-import ProgressBar from '../components/Plans/ProgressBar';
-import BackButton from '../components/Common/BackButton';
 
 export default function PlansForm() {
   const router = useRouter();
@@ -88,42 +88,43 @@ export default function PlansForm() {
         <title>Rimac - Planes</title>
         <meta name="description" content="Rimac - Planes" key="desc" />
       </Head>
-      <Header />
-      <section className={styles.plans}>
-        <ProgressBar step={1} />
-        <div className={styles.plans__wrapper}>
-          {!isMobile && <BackButton />}
-          <h1>{data?.user?.name} ¿Para quién deseas cotizar?</h1>
-          <h2>Selecciona la opción que se ajuste más a tus necesidades.</h2>
-          <div className={styles.plans__userBoxes}>
-            <UserSelect
-              title="Para mi"
-              description="Realiza una cotización para uno de tus familiares o cualquier persona."
-              selected={userOption === 'option1'}
-              onClick={() => handleUserOption('option1')}
-              src={IconPlanUser}
-            />
-            <UserSelect
-              title="Para alguien más"
-              description="Cotiza tu seguro de salud y agrega familiares si así lo deseas."
-              selected={userOption === 'option2'}
-              onClick={() => handleUserOption('option2')}
-              src={IconPlanExternal}
-            />
+      <LayoutWrapper noFooter>
+        <section className={styles.plans}>
+          <ProgressBar step={1} />
+          <div className={styles.plans__wrapper}>
+            {!isMobile && <BackButton />}
+            <h1>{data?.user?.name} ¿Para quién deseas cotizar?</h1>
+            <h2>Selecciona la opción que se ajuste más a tus necesidades.</h2>
+            <div className={styles.plans__userBoxes}>
+              <UserSelect
+                title="Para mi"
+                description="Realiza una cotización para uno de tus familiares o cualquier persona."
+                selected={userOption === 'option1'}
+                onClick={() => handleUserOption('option1')}
+                src={IconPlanUser}
+              />
+              <UserSelect
+                title="Para alguien más"
+                description="Cotiza tu seguro de salud y agrega familiares si así lo deseas."
+                selected={userOption === 'option2'}
+                onClick={() => handleUserOption('option2')}
+                src={IconPlanExternal}
+              />
+            </div>
+            <div className={styles.plans__boxes}>
+              {userOption &&
+                suitablePlans?.map((plan, index) => (
+                  <PlanSelect
+                    key={index}
+                    plan={plan}
+                    onSelect={handlePlanSelection}
+                    applyDiscount={userOption === 'option2'}
+                  />
+                ))}
+            </div>
           </div>
-          <div className={styles.plans__boxes}>
-            {userOption &&
-              suitablePlans?.map((plan, index) => (
-                <PlanSelect
-                  key={index}
-                  plan={plan}
-                  onSelect={handlePlanSelection}
-                  applyDiscount={userOption === 'option2'}
-                />
-              ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      </LayoutWrapper>
     </>
   );
 }

@@ -9,26 +9,16 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
   box-sizing: border-box;
 }
 
-main {
-  flex: 1;
+body,
+html {
+  margin: 0;
+  padding: 0;
 }
 
 ::selection {
   background-color: #14193873;
   color: #fff;
 }
-
-input[type='text'] {
-  margin: 0; // Elimina cualquier margen predeterminado
-  padding: 0; // Elimina cualquier espaciado interno predeterminado
-}
-
-$--color-primary: #141938;
-$--color-primary-light: #4f4fff;
-$--color-primary-dark: #03050f;

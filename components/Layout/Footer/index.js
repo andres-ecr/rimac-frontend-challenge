@@ -5,7 +5,7 @@ import styles from './footer.module.scss';
 
 export default function Footer() {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <Image
         className={styles.footer__logo}
         alt="Rimac Seguros y Reaseguros"
@@ -17,6 +17,6 @@ export default function Footer() {
       <div className={styles.footer__copy}>
         <span>© 2023 RIMAC Seguros y Reaseguros.</span>
       </div>
-    </div>
+    </footer>
   );
 }
