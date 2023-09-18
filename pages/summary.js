@@ -1,7 +1,7 @@
 import Head from 'next/head';
+import Image from 'next/image';
 
 // - Components
-import Image from 'next/image';
 import BackButton from '../components/Common/BackButton';
 import LayoutWrapper from '../components/Layout/LayoutWrapper';
 import ProgressBar from '../components/Plans/ProgressBar';

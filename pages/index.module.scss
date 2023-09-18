@@ -3,6 +3,33 @@
   flex: 1;
   justify-content: space-around;
   margin-top: 32px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url('/assets/imgs/LeftPinkBlur.png');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    width: 50%;
+    height: 100vh;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-image: url('/assets/imgs/RightCyanBlur.png');
+    background-repeat: no-repeat;
+    background-position: right top;
+    width: 50%;
+    height: 100vh;
+    z-index: -1;
+  }
 
   aside {
     width: 480px;
@@ -99,6 +126,13 @@
   }
 
   @media (max-width: 768px) {
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      display: none;
+    }
     aside {
       display: none;
     }

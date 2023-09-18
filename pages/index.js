@@ -4,8 +4,6 @@ import Image from 'next/image';
 import Head from 'next/head';
 
 // - Components
-import Header from '../components/Layout/Header';
-import Footer from '../components/Layout/Footer';
 import Button from '../components/Common/Button';
 import Tag from '../components/Common/Tag';
 import Input from '../components/Common/Input';

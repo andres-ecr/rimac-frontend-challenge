@@ -28,6 +28,11 @@
     }
   }
   @media (max-width: 768px) {
+    &__logo {
+      width: 138px;
+      height: 20px;
+    }
+
     flex-direction: column;
     width: 100%;
     padding: 32px 24px;
