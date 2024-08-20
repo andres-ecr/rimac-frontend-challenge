@@ -6,13 +6,13 @@
     "start": "next start"
   },
   "dependencies": {
-    "@next/font": "^13.4.19",
-    "axios": "^1.5.0",
-    "formik": "^2.4.4",
+    "@next/font": "^14.2.5",
+    "axios": "^1.7.4",
+    "formik": "^2.4.6",
     "next": "latest",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "1.26.3",
-    "yup": "^1.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "1.77.8",
+    "yup": "^1.4.0"
   }
 }
