@@ -1,26 +1,22 @@
-import axios from 'axios';
-
 const BASE_URL = 'https://rimac-front-end-challenge.netlify.app/api';
 
-const api = axios.create({
-  baseURL: BASE_URL,
-  timeout: 10000, //
-});
-
-export const fetchUserData = async () => {
+const fetchData = async (endpoint) => {
+  const url = `${BASE_URL}${endpoint}`;
   try {
-    const response = await api.get('/user.json');
-    return response.data;
+    const response = await fetch(url, { method: 'GET', timeout: 10000 });
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status} ${response.statusText}`);
+    }
+    return await response.json();
   } catch (error) {
     throw error;
   }
 };
 
+export const fetchUserData = async () => {
+  return await fetchData('/user.json');
+};
+
 export const fetchPlansData = async () => {
-  try {
-    const response = await api.get('/plans.json');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  return await fetchData('/plans.json');
 };

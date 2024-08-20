@@ -1,6 +1,8 @@
 .inputWrapper {
   position: relative;
+
   .input {
+    background-color: red;
     width: 100%;
     max-width: 280px;
     overflow: hidden;
@@ -14,6 +16,11 @@
       transform: translateY(50%);
       transition: all 0.2s ease;
       pointer-events: none;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
     }
 
     input {

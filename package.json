@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "@next/font": "^14.2.5",
-    "axios": "^1.7.4",
     "formik": "^2.4.6",
     "next": "latest",
     "react": "^18.3.1",

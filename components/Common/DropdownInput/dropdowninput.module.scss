@@ -12,7 +12,6 @@
       border: 1px solid #5e6488;
       background: #f8f9ff;
       padding: 8px 15px;
-      height: 40px;
       font-size: 16px;
       font-weight: 500;
       color: #03050f;
@@ -35,6 +34,11 @@
         transform: translateY(50%);
         transition: all 0.2s ease;
         pointer-events: none;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
       }
 
       input {
